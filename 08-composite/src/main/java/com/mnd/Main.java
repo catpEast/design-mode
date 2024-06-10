@@ -1,5 +1,10 @@
 package com.mnd;
 
+/**
+ * 组合模式
+ * 把一组相似的对象当作一个单一的对象
+ * 组合模式依据树形结构来组合对象，用来表示部分以及整体层次
+ */
 public class Main {
 
     public static void main(String[] args) {
