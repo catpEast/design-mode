@@ -13,14 +13,16 @@ import net.sf.cglib.proxy.Enhancer;
 public class Main {
 
     public static void main(String[] args) {
+        // 保存CGLIB生成的字节码文件
         System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, Main.class.getResource("").getPath());
 
         String orderNo = "1001";
         IOrderService orderService = new OrderService();
         Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(OrderService.class);
+        enhancer.setSuperclass(IOrderService.class);
         enhancer.setCallback(new OrderServiceClassProxyInterceptor(orderService));
         IOrderService cglibProxy = (IOrderService) enhancer.create();
+        
         cglibProxy.add(orderNo);
         cglibProxy.delete(orderNo);
         cglibProxy.modify(orderNo);

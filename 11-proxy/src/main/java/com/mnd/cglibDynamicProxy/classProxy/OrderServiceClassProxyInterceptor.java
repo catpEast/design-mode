@@ -20,11 +20,13 @@ public class OrderServiceClassProxyInterceptor implements MethodInterceptor {
     @Override
     public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         long start = System.currentTimeMillis();
-        Object result = method.invoke(target, args);
+        
+        methodProxy.invoke(target, args);   // 将target转换为OrderService，调用add/delete等方法
+        
+//        methodProxy.invokeSuper(proxy, args);   // 将proxy转换为OrderService的代理对象，调用CGLIB$add$0等方法
         long end = System.currentTimeMillis();
         System.out.println("CGLIB动态代理 >>> " + (end - start) + "ms");
-        // methodProxy.invoke();
-        
-        return result;
+     
+        return null;
     }
 }
