@@ -6,12 +6,17 @@ package com.mnd;
  * @Description
  */
 public class Student extends Person {
+    
     public Student(String name, String identity, String clazz) {
         super(name, identity, clazz);
     }
 
     @Override
     public void accept(Visitor visitor) {
-        
+        visitor.visit(this);
+    }
+    
+    public void study() {
+        System.out.println("努力学习");
     }
 }

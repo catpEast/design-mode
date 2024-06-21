@@ -7,5 +7,7 @@ package com.mnd;
  */
 public interface Visitor {
     
-    void visit(Person person);
+    void visit(Student student);
+    
+    void visit(Teacher teacher);
 }

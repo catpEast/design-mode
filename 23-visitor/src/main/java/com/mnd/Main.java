@@ -7,6 +7,10 @@ package com.mnd;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Teacher teacher = new Teacher("张老师", "特级教师", "3年级2班的班主任");
+        Student student = new Student("李四", "普通学生", "6年级1班");
+        Visitor parentVisitor = new ParentVisitor();
+        teacher.accept(parentVisitor);
+        student.accept(parentVisitor);
     }
 }

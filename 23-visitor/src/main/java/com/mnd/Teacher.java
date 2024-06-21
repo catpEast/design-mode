@@ -17,6 +17,6 @@ public class Teacher extends Person {
     }
     
     public void teach() {
-        System.out.println("数学老师");
+        System.out.println("数学教学");
     }
 }
